@@ -1,0 +1,69 @@
+% Requiere \usepackage{booktabs}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Comparacion del algoritmo CEO binarizado con los resultados publicados por Crawford et al. (2025) sobre instancias SCP de OR-Library. Configuracion de CEO: funcion de transferencia V3, regla de binarizacion ELIT, manejo de infactibilidad repair, dominio continuo $[-5,5]$, $N_p=10$, $N=2$, MaxFES $=6000$, 31 corridas independientes. Los valores de SBOA, GWO y PSO son transcripcion de las Tablas 8 y 9 de dicho trabajo y provienen de un entorno experimental distinto, por lo que la comparacion es contra valores reportados en la literatura y no un experimento controlado.}
+\label{tab:ceo-scp}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & & \multicolumn{4}{c}{Mejor valor} & \multicolumn{4}{c}{Promedio} & \\
+\cmidrule(lr){3-6} \cmidrule(lr){7-10}
+Inst. & Opt. & CEO & SBOA & GWO & PSO & CEO & SBOA & GWO & PSO & RPD (\%) \\
+\midrule
+U41 & 38 & 40 & \textbf{39} & \textbf{39} & \textbf{39} & 41.968 & 39.839 & 40.871 & \textbf{39.645} & 5.263 \\
+U51 & 34 & 36 & \textbf{35} & \textbf{35} & \textbf{35} & 38.097 & \textbf{35.581} & 36.290 & 35.613 & 5.882 \\
+U61 & 21 & 22 & \textbf{21} & \textbf{21} & \textbf{21} & 22.871 & \textbf{21.290} & 21.839 & \textbf{21.290} & 4.762 \\
+UA1 & 39 & 42 & \textbf{39} & 40 & 40 & 43.226 & \textbf{40.323} & 41.387 & 40.452 & 7.692 \\
+UB1 & 22 & 23 & \textbf{22} & \textbf{22} & \textbf{22} & 24.742 & 22.806 & 23.387 & \textbf{22.774} & 4.545 \\
+UC1 & 43 & 46 & \textbf{43} & 44 & 44 & 49.129 & \textbf{44.323} & 46.387 & 44.774 & 6.977 \\
+UD1 & 24 & 27 & \textbf{25} & \textbf{25} & \textbf{25} & 27.581 & 25.226 & 26.194 & \textbf{25.065} & 12.500 \\
+UNRE1 & 17 & \textbf{17} & \textbf{17} & \textbf{17} & \textbf{17} & 18.613 & 17.516 & 17.774 & \textbf{17.000} & 0.000 \\
+UNRF1 & 10 & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & 10.968 & 10.903 & 10.774 & \textbf{10.290} & 0.000 \\
+UNRG1 & 61 & 68 & \textbf{62} & 63 & \textbf{62} & 70.774 & \textbf{62.484} & 66.194 & 63.290 & 11.475 \\
+UNRH1 & 34 & 37 & \textbf{34} & 35 & \textbf{34} & 38.226 & \textbf{34.323} & 35.839 & 34.935 & 8.824 \\
+CLR10 & 25 & \textbf{25} & \textbf{25} & \textbf{25} & \textbf{25} & 25.710 & \textbf{25.097} & 25.387 & 25.290 & 0.000 \\
+CLR11 & 23 & \textbf{23} & \textbf{23} & \textbf{23} & \textbf{23} & 25.387 & \textbf{23.000} & 24.839 & 23.387 & 0.000 \\
+CLR12 & 23 & \textbf{23} & \textbf{23} & \textbf{23} & \textbf{23} & 25.548 & 24.258 & 24.774 & \textbf{23.968} & 0.000 \\
+CYC06 & 60 & \textbf{60} & \textbf{60} & \textbf{60} & \textbf{60} & 61.452 & \textbf{61.097} & 61.452 & 61.226 & 0.000 \\
+CYC07 & 144 & 147 & 147 & 147 & \textbf{144} & 152.839 & 150.871 & 151.903 & \textbf{150.484} & 2.083 \\
+CYC08 & 344 & 363 & \textbf{357} & 358 & 358 & 368.258 & \textbf{361.129} & 363.419 & 362.258 & 5.523 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\textwidth}\scriptsize
+En negrita el mejor valor de cada fila. RPD $=100\,(\text{CEO}_{best}-\text{Opt})/\text{Opt}$.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Dispersion de los resultados: peor valor y desviacion estandar, para la misma configuracion de la Tabla~\ref{tab:ceo-scp}.}
+\label{tab:ceo-scp-disp}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & \multicolumn{4}{c}{Peor valor} & \multicolumn{4}{c}{Desv. estandar} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+Inst. & CEO & SBOA & GWO & PSO & CEO & SBOA & GWO & PSO \\
+\midrule
+U41 & 44 & 41 & 43 & 41 & 1.031 & 0.627 & 1.070 & 0.598 \\
+U51 & 40 & 37 & 38 & 36 & 0.995 & 0.555 & 0.681 & 0.487 \\
+U61 & 24 & 22 & 23 & 22 & 0.707 & 0.454 & 0.514 & 0.454 \\
+UA1 & 45 & 41 & 43 & 41 & 0.940 & 0.642 & 0.656 & 0.498 \\
+UB1 & 26 & 24 & 24 & 23 & 0.841 & 0.591 & 0.605 & 0.418 \\
+UC1 & 52 & 45 & 48 & 46 & 1.289 & 0.532 & 0.790 & 0.551 \\
+UD1 & 29 & 26 & 27 & 26 & 0.610 & 0.418 & 0.470 & 0.246 \\
+UNRE1 & 20 & 18 & 18 & 17 & 0.656 & 0.500 & 0.418 & 0.000 \\
+UNRF1 & 11 & 11 & 11 & 11 & 0.177 & 0.296 & 0.418 & 0.454 \\
+UNRG1 & 73 & 63 & 68 & 64 & 1.384 & 0.500 & 0.895 & 0.579 \\
+UNRH1 & 40 & 35 & 37 & 35 & 0.831 & 0.467 & 0.514 & 0.246 \\
+CLR10 & 28 & 27 & 27 & 27 & 1.022 & 0.390 & 0.748 & 0.632 \\
+CLR11 & 28 & 23 & 27 & 27 & 1.878 & 0.000 & 1.919 & 1.183 \\
+CLR12 & 28 & 28 & 29 & 26 & 1.643 & 1.586 & 2.121 & 1.257 \\
+CYC06 & 64 & 62 & 63 & 62 & 1.131 & 0.817 & 0.978 & 0.831 \\
+CYC07 & 157 & 153 & 154 & 153 & 2.096 & 1.362 & 1.399 & 1.563 \\
+CYC08 & 373 & 365 & 372 & 367 & 2.125 & 2.324 & 2.721 & 1.883 \\
+\bottomrule
+\end{tabular}
+\end{table}

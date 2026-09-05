@@ -66,7 +66,7 @@ RULE = "elit"
 
 
 # ==========================================================================
-# BLOQUE 3 - PARAMETROS PROPIOS DE CEO (no existen en el paper de SCP)
+# BLOQUE 3 - PARAMETROS PROPIOS DE CEO
 # ==========================================================================
 
 # N = numero de muestras caoticas por par de individuos (parametro de CEO.py).
@@ -74,9 +74,6 @@ RULE = "elit"
 CHAOS_SAMPLES = 2
 
 # Dominio continuo [VARMIN, VARMAX] en el que vive la poblacion de CEO.
-# DECISION PROPIA: el paper no fija este dominio. Es critico porque
-# determina la escala de entrada de la funcion de transferencia y, con ello,
-# cuantos bits se activan. Sensible: conviene reportarlo en el informe.
 VARMIN = -5.0
 VARMAX = 5.0
 
@@ -88,8 +85,6 @@ VARMAX = 5.0
 #   "ceo_py" -> comportamiento tal cual del archivo CEO.py: corta tras 51
 #               iteraciones consecutivas sin mejora. Es un agregado de la
 #               implementacion, no aparece en ninguno de los dos papers.
-# Ninguna de las dos opciones edita CEO.py: "paper" se logra sobrescribiendo
-# handle_stagnation en la subclase CEO_SCP.
 STAGNATION = "paper"
 
 # Como igualar el esfuerzo computacional con el paper.
@@ -101,9 +96,7 @@ BUDGET = "fes"
 
 
 # ==========================================================================
-# BLOQUE 4 - DECISIONES QUE EL PAPER NO ESPECIFICA
-# Verificado: los terminos "feasible", "infeasible", "repair" y "penalty"
-# tienen CERO ocurrencias en las 28 paginas del paper.
+# BLOQUE 4 - INCLUSIÓN DE REPARADOR
 # ==========================================================================
 
 # Manejo de soluciones que violan la restriccion de cobertura, Ec. (2), p. 3.
@@ -114,18 +107,15 @@ BUDGET = "fes"
 #                para demostrar en el informe que el vacio del paper es real.
 INFEASIBLE = "repair"
 
-# UNICOST se deriva de PROBLEM y no se edita aqui.
-
 
 # ==========================================================================
-# BLOQUE 5 - CONTROL EXPERIMENTAL (recomendado, no obligatorio)
+# BLOQUE 5 - CONTROL EXPERIMENTAL
 # ==========================================================================
 
 # Ejecuta dos baselines sin CEO para medir cuanto aporta la metaheuristica
 # por encima del reparador:
 #   greedy        -> x=0 reparado (determinista, 1 evaluacion).
 #   random+repair -> mismo presupuesto de evaluaciones, soluciones aleatorias.
-# Si el baseline iguala a CEO, el merito no es de CEO. Debe reportarse.
 RUN_BASELINE = True
 
 
